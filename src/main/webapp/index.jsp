@@ -124,7 +124,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="home" aria-expanded="false"><i
                                     class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="html/pages-profile.html" aria-expanded="false"><i
