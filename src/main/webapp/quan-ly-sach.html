@@ -1,4 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +9,7 @@
     <meta name="keywords" content="Quản lý thư viện libary manager">
     <meta name="description" content="Dự án cho cộng đồng">
     <meta name="robots" content="noindex,nofollow">
-    <title>${users.get(0).getName()} LibaryManager</title>
+    <title>LibaryManager</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <!-- Bootstrap Core CSS -->
@@ -58,7 +57,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html" display="flex" style="text-align: center">
+                    <a class="navbar-brand" href="html/index.html" display="flex" style="text-align: center">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
@@ -124,7 +123,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="html/index.html" aria-expanded="false"><i
                                     class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="quan-ly-sach.html" aria-expanded="false"><i
@@ -165,286 +164,190 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Trang chủ</h3>
+                        <h3 class="text-themecolor">Kho sách</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Zuno</a></li>
-                            <li class="breadcrumb-item active">Thống kê</li>
+                            <li class="breadcrumb-item active">Kho sách</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a onclick="createBill()"
-                            class="btn waves-effect waves-light btn btn-info pull-right text-white">
-                            Cho mượn</a>
+                        <a href=""
+                            class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
+                            Tạo hóa đơn</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Sales Chart and browser state-->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-8">
+                    <!-- column -->
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-flex no-block">
-                                    <div>
-                                        <h5 class="card-title mb-0">Thống kê sách</h5>
-                                    </div>
-                                    <div class="ms-auto">
-                                        <ul class="list-inline text-center font-12">
-                                            <li><i class="fa fa-circle text-success"></i> Nhập</li>
-                                            <li><i class="fa fa-circle text-info"></i> Mượn</li>
-                                            <li><i class="fa fa-circle text-primary"></i> Trả</li>
-                                        </ul>
-                                    </div>
+                                <h4 class="card-title">Các loại sách</h4>
+                                <h6 class="card-subtitle">Heyy <code>.book</code></h6>
+                                <div class="searchbar-box">
+                                    <input type="text" class="searchbar" name="searchbar" id="mySearchbar"
+                                        placeholder="Search">
+                                    <button class="search-button">
+                                        <span class="button-icon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
                                 </div>
-                                <div class="" id="sales-chart" style="height: 355px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex mb-4 no-block">
-                                    <h5 class="card-title mb-0 align-self-center">Tổng</h5>
-                                    <div class="ms-auto">
-                                        <select class="form-select b-0">
-                                            <option selected="">7 Ngày</option>
-                                            <option value="1">ALL</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div id="visitor" style="height:260px; width:100%;"></div>
-                                <ul class="list-inline mt-4 text-center font-12">
-                                    <li><i class="fa fa-circle text-purple"></i>Nhập</li>
-                                    <li><i class="fa fa-circle text-success"></i> Mượn</li>
-                                    <li><i class="fa fa-circle text-info"></i> Trả</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Sales Chart -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Projects of the Month -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-8 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div>
-                                        <h5 class="card-title">Quản trị viên</h5>
-                                    </div>
-                                    <div class="ms-auto">
-                                        <select class="form-select b-0">
-                                            <option selected="">Tuần này</option>
-                                            <option value="1">Tháng này</option>
-                                            <option value="2">Năm này</option>
-                                            <option value="3">Tổng thời gian</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="table-responsive mt-3 no-wrap">
-                                    <table class="table vm no-th-brd pro-of-month">
+                                <div class="table-responsive">
+                                    <table class="table" class="message-center">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">Người quản lý</th>
-                                                <th>Tên</th>
+                                                <th>ID</th>
+                                                <th>Tiêu đề</th>
+                                                <th>Tác giả</th>
+                                                <th>Số lượng</th>
+                                                <th>Còn lại</th>
+                                                <th>Thất thoát</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td style="width:50px;"><span class="round">S</span></td>
-                                                <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small>
-                                                </td>
-                                                <td>Elite Admin</td>
-                                                <td>$3.9K</td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td><span class="round"><img src="assets/images/users/2.jpg"
-                                                            alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small>
-                                                </td>
-                                                <td>Real Homes</td>
-                                                <td>$23.9K</td>
+                                                <td>1</td>
+                                                <td>Bạn là cậu nhỏ của tớ</td>
+                                                <td>Jun Phạm</td>
+                                                <td>100</td>
+                                                <td>38</td>
+                                                <td>2</td>
+                                                <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a>
+                                                    / <a>Xóa</a></td>
                                             </tr>
                                             <tr>
-                                                <td><span class="round round-success">B</span></td>
-                                                <td>
-                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small>
+                                                <td>2</td>
+                                                <td>Cậu là bạn nhỏ của tớ</td>
+                                                <td>Jun Phạm</td>
+                                                <td>99</td>
+                                                <td>88</td>
+                                                <td>8</td>
+                                                <td><a onclick="createBill(2)">Cho mượn</a> / <a>Chỉnh sửa</a> /
+                                                    <a>Xóa</a>
                                                 </td>
-                                                <td>MedicalPro Theme</td>
-                                                <td>$12.9K</td>
                                             </tr>
+                                        </tbody>
+                                    </table>
+                                    <script>
+                                        function createBill(idBook) {
+                                            window.location.href = "tao-hoa-don.html?id=" + idBook + "&name=" + "Bạn là cậu nhỏ của tớ";
+                                        }
+                                    </script>
+                                </div>
+                                <div style="text-align:center;">
+                                    <style>
+                                        .pagination {
+                                            display: inline-block;
+                                        }
+
+                                        .pagination a {
+                                            color: black;
+                                            float: left;
+                                            padding: 8px 16px;
+                                            text-decoration: none;
+                                            transition: background-color .3s;
+                                        }
+
+                                        .pagination a.active {
+                                            background-color: #4CAF50;
+                                            color: white;
+                                            border-radius: 5px;
+                                        }
+
+                                        .pagination a:hover:not(.active) {
+                                            background-color: #ddd;
+                                            border-radius: 5px;
+                                        }
+                                    </style>
+                                    <br>
+                                    <div class="pagination">
+                                        <a href="#">&laquo;</a>
+                                        <a href="#" class="active">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <a href="#">&raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Thêm sách</h4>
+                                <h6 class="card-subtitle">Heyy <code>.book</code></h6>
+                                <div class="table-responsive">
+                                    <table class="table" class="message-center">
+                                        <thead>
                                             <tr>
-                                                <td><span class="round round-primary">N</span></td>
-                                                <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small>
-                                                </td>
-                                                <td>Elite Admin</td>
-                                                <td>$10.9K</td>
+                                                <th>Tiêu đề</th>
+                                                <th>Tác giả</th>
+                                                <th>Số lượng</th>
+                                                <th>Tháo tác</th>
                                             </tr>
-                                            <tr>
-                                                <td><span class="round round-warning">M</span></td>
-                                                <td>
-                                                    <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small>
-                                                </td>
-                                                <td>Helping Hands</td>
-                                                <td>$12.9K</td>
+                                        </thead>
+                                        <tbody id="add_book">
+                                            <tr id="addRow0">
+                                                <td><input type="text" name="title" placeholder="Cậu là..."></td>
+                                                <td><input type="text" name="author" placeholder="Jun..."></td>
+                                                <td><input type="text" name="number" placeholder="34..."></td>
+                                                <td><a onclick="deleteRow(0)">Xóa</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="up-img" style="background-image:url(assets/images/big/img1.jpg)"></div>
-                            <div class="card-body">
-                                <h5 class=" card-title">Nâng cấp lên Pro để nhiều tính năng hơn</h5>
-                                <span class="label label-info label-rounded">Premium</span>
-                                <p class="mb-0 mt-3">Bản pro nhiều tính năng lắm đấy nhưng mà. Nâng cấp đi các cậu ơi
-                                </p>
-                                <div class="d-flex mt-3">
-                                    <a class="link" href="javascript:void(0)">Thông tin thêm</a>
-                                    <div class="ms-auto align-self-center">
-                                        <a href="javascript:void(0)" class="link me-2"><i class="fa fa-heart-o"></i></a>
-                                        <a href="javascript:void(0)" class="link me-2"><i
-                                                class="fa fa-share-alt"></i></a>
-                                    </div>
+                                <br>
+                                <script>
+                                    var countAddRow = 0;
+                                    function addRow() {
+                                        var addBook = document.getElementById("add_book");
+                                        countAddRow++;
+                                        var child = document.createElement("tr");
+                                        child.id = "addRow" + countAddRow;
+                                        child.innerHTML = `
+                                            <td><input type="text" name="title" placeholder="Cậu là..."></td>
+                                            <td><input type="text" name="author" placeholder="Jun..."></td>
+                                            <td><input type="text" name="number" placeholder="34..."></td>
+                                            <td><a onclick="deleteRow(`+ countAddRow + `)">Xóa</a></td>
+                                        `;
+                                        addBook.appendChild(child);
+                                    }
+                                    function deleteRow(id) {
+                                        var addRow = document.getElementById("addRow" + id);
+                                        addRow.remove();
+                                    }
+
+                                </script>
+                                <div class="flex">
+                                    <a href="" style="margin-left: 20px;"
+                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                        Lưu</a>
+                                    <a onclick="addRow()"
+                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                        + Thêm hàng</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Projects of the Month -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Notification And Feeds -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <!-- Start Notification -->
-                    <div class="col-lg-6 col-md-12">
-                        <div class="card card-body mailbox">
-                            <h5 class="card-title">Notification</h5>
-                            <div class="message-center" style="height: 420px !important;">
-                                <!-- Message -->
-                                <a href="#">
-                                    <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
-                                    <div class="mail-contnet">
-                                        <h6 class="text-dark font-medium mb-0">Luanch Admin</h6> <span
-                                            class="mail-desc">Just see the my new admin!</span>
-                                        <span class="time">9:30 AM</span>
-                                    </div>
-                                </a>
-                                <!-- Message -->
-                                <a href="#">
-                                    <div class="btn btn-success btn-circle"><i class="fa fa-calendar-check-o"></i></div>
-                                    <div class="mail-contnet">
-                                        <h6 class="text-dark font-medium mb-0">Event today</h6> <span
-                                            class="mail-desc">Just a reminder that you have
-                                            event</span> <span class="time">9:10 AM</span>
-                                    </div>
-                                </a>
-                                <!-- Message -->
-                                <a href="#">
-                                    <div class="btn btn-info btn-circle"><i class="fa fa-cog text-white"></i></div>
-                                    <div class="mail-contnet">
-                                        <h6 class="text-dark font-medium mb-0">Settings</h6> <span class="mail-desc">You
-                                            can customize this template as you
-                                            want</span> <span class="time">9:08 AM</span>
-                                    </div>
-                                </a>
-                                <!-- Message -->
-                                <a href="#">
-                                    <div class="btn btn-primary btn-circle"><i class="fa fa-user"></i></div>
-                                    <div class="mail-contnet">
-                                        <h6 class="text-dark font-medium mb-0">Pavan kumar</h6> <span
-                                            class="mail-desc">Just see the my admin!</span> <span class="time">9:02
-                                            AM</span>
-                                    </div>
-                                </a>
-                                <!-- Message -->
-                                <a href="#">
-                                    <div class="btn btn-info btn-circle"><i class="fa fa-cog text-white"></i></div>
-                                    <div class="mail-contnet">
-                                        <h6 class="text-dark font-medium mb-0">Customize Themes</h6> <span
-                                            class="mail-desc">You can customize this template as you
-                                            want</span> <span class="time">9:08 AM</span>
-                                    </div>
-                                </a>
-                                <!-- Message -->
-                                <a href="#">
-                                    <div class="btn btn-primary btn-circle"><i class="fa fa-user"></i></div>
-                                    <div class="mail-contnet">
-                                        <h6 class="text-dark font-medium mb-0">Pavan kumar</h6> <span
-                                            class="mail-desc">Just see the my admin!</span> <span class="time">9:02
-                                            AM</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Notification -->
-                    <!-- Start Feeds -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Feeds</h5>
-                                <ul class="feeds">
-                                    <li>
-                                        <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending
-                                        tasks. <span class="text-muted">Just Now</span>
-                                    </li>
-                                    <li>
-                                        <div class="bg-light-success"><i class="fa fa-server"></i></div> Server #1
-                                        overloaded.<span class="text-muted">2 Hours ago</span>
-                                    </li>
-                                    <li>
-                                        <div class="bg-light-warning"><i class="fa fa-shopping-cart"></i></div> New
-                                        order received.<span class="text-muted">31 May</span>
-                                    </li>
-                                    <li>
-                                        <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user
-                                        registered.<span class="text-muted">30 May</span>
-                                    </li>
-                                    <li>
-                                        <div class="bg-light-inverse"><i class="fa fa-bell-o"></i></div> New Version
-                                        just arrived. <span class="text-muted">27 May</span>
-                                    </li>
-                                    <li>
-                                        <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending
-                                        tasks. <span class="text-muted">Just Now</span>
-                                    </li>
-                                    <li>
-                                        <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user
-                                        registered.<span class="text-muted">30 May</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Feeds -->
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Notification And Feeds -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- End Page Content -->
+                <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -453,7 +356,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2021 Adminwrap by <a href="https://www.wrappixel.com/">wrappixel.com</a> </footer>
+            <footer class="footer"> © 2024 ZunoLibary by <a href="https://gihub.com/zunohoang">zunohoang</a> </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

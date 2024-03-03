@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hóa đơn mượn sách</title>
+    <style>
+        /* CSS styles for the invoice */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        section {
+            margin: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        footer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: right;
+        }
+
+        #total-books,
+        #total-amount {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>HÓA ĐƠN MƯỢN SÁCH</h1>
+        <p>Ngày: <span id="invoice-date"></span></p>
+    </header>
+
+    <section>
+        <h2>Thông tin khách hàng</h2>
+        <p>Tên khách hàng: <span id="customer-name"></span></p>
+        <p>Địa chỉ: <span id="customer-address"></span></p>
+        <!-- Add more customer information fields as needed -->
+    </section>
+
+    <section>
+        <h2>Thông tin sách mượn</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên sách</th>
+                    <th>Tác giả</th>
+                    <th>Ngày mượn</th>
+                    <th>Ngày trả</th>
+                    <!-- Add more book information columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add book rows dynamically using JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>Tổng số sách mượn: <span id="total-books"></span></p>
+        <p>Tổng số tiền phải trả: <span id="total-amount"></span></p>
+    </footer>
+
+    <script>
+        // JavaScript code to populate the invoice data dynamically
+        // ...
+    </script>
+</body>
+
+</html>

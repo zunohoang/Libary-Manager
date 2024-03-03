@@ -1,4 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,23 +9,23 @@
     <meta name="keywords" content="Quản lý thư viện libary manager">
     <meta name="description" content="Dự án cho cộng đồng">
     <meta name="robots" content="noindex,nofollow">
-    <title>${users.get(0).getName()} LibaryManager</title>
+    <title>LibaryManager</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <!-- Bootstrap Core CSS -->
-    <link href="assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
     <!-- This page CSS -->
     <!-- chartist CSS -->
-    <link href="assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <!--c3 CSS -->
-    <link href="assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="html/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
-    <link href="html/css/pages/dashboard1.css" rel="stylesheet">
+    <link href="css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="html/css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,7 +61,7 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
                         </b>
                         <!--End Logo icon -->
@@ -104,7 +103,7 @@
                         <li class="nav-item dropdown u-pro">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
                                 id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="" />
+                                aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="" />
                                 <span class="hidden-md-down">Admin - Zunohoang &nbsp;</span> </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
@@ -127,17 +126,17 @@
                         <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
                                     class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="../quan-ly-sach.html" aria-expanded="false"><i
                                     class="fa fa-book"></i><span class="hide-menu">Quản lý sách</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="../quan-ly-nguoi-muon.html" aria-expanded="false"><i
                                     class="fa fa-address-card-o"></i><span class="hide-menu">Quản lý người
                                     mượn</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="../quan-ly-quyen.html" aria-expanded="false"><i
                                     class="fa  fa-group"></i><span class="hide-menu">Quản lý quyền</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="../thong-tin-ca-nhan.html" aria-expanded="false"><i
                                     class="fa fa-user-circle-o"></i><span class="hide-menu">Thông tin cá nhân</span></a>
                         </li>
                     </ul>
@@ -270,7 +269,7 @@
                                                 <td>$3.9K</td>
                                             </tr>
                                             <tr class="active">
-                                                <td><span class="round"><img src="assets/images/users/2.jpg"
+                                                <td><span class="round"><img src="../assets/images/users/2.jpg"
                                                             alt="user" width="50"></span></td>
                                                 <td>
                                                     <h6>Andrew</h6><small class="text-muted">Project Manager</small>
@@ -312,7 +311,7 @@
                     <!-- Column -->
                     <div class="col-lg-4 d-flex align-items-stretch">
                         <div class="card w-100">
-                            <div class="up-img" style="background-image:url(assets/images/big/img1.jpg)"></div>
+                            <div class="up-img" style="background-image:url(../assets/images/big/img1.jpg)"></div>
                             <div class="card-body">
                                 <h5 class=" card-title">Nâng cấp lên Pro để nhiều tính năng hơn</h5>
                                 <span class="label label-info label-rounded">Premium</span>
@@ -468,28 +467,28 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="assets/node_modules/jquery/jquery.min.js"></script>
+    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap popper Core JavaScript -->
-    <script src="assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="html/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
-    <script src="html/js/waves.js"></script>
+    <script src="js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="html/js/sidebarmenu.js"></script>
+    <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="html/js/custom.min.js"></script>
+    <script src="js/custom.min.js"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!--morris JavaScript -->
-    <script src="assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="../assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
     <!--c3 JavaScript -->
-    <script src="assets/node_modules/d3/d3.min.js"></script>
-    <script src="assets/node_modules/c3-master/c3.min.js"></script>
+    <script src="../assets/node_modules/d3/d3.min.js"></script>
+    <script src="../assets/node_modules/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
-    <script src="html/js/dashboard1.js"></script>
+    <script src="js/dashboard1.js"></script>
     <script>
         window.onload = function () {
             var chart = c3.generate({

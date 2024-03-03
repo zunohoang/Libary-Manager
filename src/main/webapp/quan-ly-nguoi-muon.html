@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsiveto screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Quản lý thư viện libary manager">
+    <meta name="description" content="Dự án cho cộng đồng">
+    <meta name="robots" content="noindex,nofollow">
+    <title>LibaryManager</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="html/css/style.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="html/css/pages/dashboard1.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="html/css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">@zunohoang</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="html/index.html" display="flex" style="text-align: center">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span style="color: #20aee3">
+                            <!-- dark Logo text -->
+                            Zuno Manager
+                            <!-- Light Logo text --></span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="fa fa-bars"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-xs-down search-box"> <a
+                                class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i
+                                    class="fa fa-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a
+                                    class="srh-btn"><i class="fa fa-times"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="" />
+                                <span class="hidden-md-down">Admin - Zunohoang &nbsp;</span> </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="waves-effect waves-dark" href="html/index.html" aria-expanded="false"><i
+                                    class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach.html" aria-expanded="false"><i
+                                    class="fa fa-book"></i><span class="hide-menu">Quản lý sách</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon.html" aria-expanded="false"><i
+                                    class="fa fa-address-card-o"></i><span class="hide-menu">Quản lý người
+                                    mượn</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen.html" aria-expanded="false"><i
+                                    class="fa  fa-group"></i><span class="hide-menu">Quản lý quyền</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan.html" aria-expanded="false"><i
+                                    class="fa fa-user-circle-o"></i><span class="hide-menu">Thông tin cá nhân</span></a>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-4">
+                        <a class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Đăng xuất</a>
+                    </div>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">Người mượn</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Zuno</a></li>
+                            <li class="breadcrumb-item active">Người mượn</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href=""
+                            class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
+                            Nâng cấp đi :></a>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Danh sách người mượn</h4>
+                                <h6 class="card-subtitle">Heyy <code>.borrower</code></h6>
+                                <div class="searchbar-box">
+                                    <input type="text" class="searchbar" name="searchbar" id="mySearchbar"
+                                        placeholder="Search">
+                                    <button class="search-button">
+                                        <span class="button-icon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table" class="message-center">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Họ tên</th>
+                                                <th>Năm sinh</th>
+                                                <th>Số sách đã mượn</th>
+                                                <th>Số sách đã trả</th>
+                                                <th>Liên hệ</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Nguyễn Văn Hoàng</td>
+                                                <td>04/10/2005</td>
+                                                <td>12</td>
+                                                <td>10</td>
+                                                <td>Email / SMS</td>
+                                                <td><a>Chỉnh sửa</a> / <a>Xóa</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Nguyễn Văn Hoàng</td>
+                                                <td>04/10/2005</td>
+                                                <td>12</td>
+                                                <td>10</td>
+                                                <td>Email / SMS</td>
+                                                <td><a>Chỉnh sửa</a> / <a>Xóa</a></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="text-align:center;">
+                                    <style>
+                                        .pagination {
+                                            display: inline-block;
+                                        }
+
+                                        .pagination a {
+                                            color: black;
+                                            float: left;
+                                            padding: 8px 16px;
+                                            text-decoration: none;
+                                            transition: background-color .3s;
+                                        }
+
+                                        .pagination a.active {
+                                            background-color: #4CAF50;
+                                            color: white;
+                                            border-radius: 5px;
+                                        }
+
+                                        .pagination a:hover:not(.active) {
+                                            background-color: #ddd;
+                                            border-radius: 5px;
+                                        }
+                                    </style>
+                                    <br>
+                                    <div class="pagination">
+                                        <a href="#">&laquo;</a>
+                                        <a href="#" class="active">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <a href="#">&raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Thêm người mượn</h4>
+                                <h6 class="card-subtitle">add <code>.borrower</code></h6>
+                                <div class="table-responsive">
+                                    <table class="table" class="message-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Họ tên</th>
+                                                <th>Năm sinh</th>
+                                                <th>Số sách đã mượn</th>
+                                                <th>Số sách đã trả</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Email</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="add_book">
+                                            <tr id="addRow0">
+                                                <td><input type="text" name="name" placeholder="Nguyễn Văn A"></td>
+                                                <td><input type="text" name="born" placeholder="01/01/2005"></td>
+                                                <td><input type="text" name="pay" value="0"></td>
+                                                <td><input type="text" name="repay" value="0"></td>
+                                                <td><input type="text" name="number" placeholder="0123456789"></td>
+                                                <td><input type="text" name="email" placeholder="abc@gmail.com"></td>
+                                                <td><a onclick="deleteRow(0)">Xóa</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                                <script>
+                                    var countAddRow = 0;
+                                    function addRow() {
+                                        var addBook = document.getElementById("add_book");
+                                        countAddRow++;
+                                        var child = document.createElement("tr");
+                                        child.id = "addRow" + countAddRow;
+                                        child.innerHTML = `
+                                            <td><input type="text" name="name" placeholder="Nguyễn Văn A"></td>
+                                            <td><input type="text" name="born" placeholder="01/01/2005"></td>
+                                            <td><input type="text" name="pay" value="0"></td>
+                                            <td><input type="text" name="repay" value="0"></td>
+                                            <td><input type="text" name="number" placeholder="0123456789"></td>
+                                            <td><input type="text" name="email" placeholder="abc@gmail.com"></td>
+                                            <td><a onclick="deleteRow(`+ countAddRow + `)">Xóa</a></td>
+                                        `;
+                                        addBook.appendChild(child);
+                                    }
+                                    function deleteRow(id) {
+                                        var addRow = document.getElementById("addRow" + id);
+                                        addRow.remove();
+                                    }
+
+                                </script>
+                                <div class="flex">
+                                    <a href="" style="margin-left: 20px;"
+                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                        Lưu</a>
+                                    <a onclick="addRow()"
+                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                        + Thêm hàng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2024 ZunoLibary by <a href="https://gihub.com/zunohoang">zunohoang</a> </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/node_modules/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="html/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="html/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="html/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="html/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="assets/node_modules/morrisjs/morris.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="assets/node_modules/d3/d3.min.js"></script>
+    <script src="assets/node_modules/c3-master/c3.min.js"></script>
+    <!-- Chart JS -->
+    <script src="html/js/dashboard1.js"></script>
+</body>
+
+</html>

@@ -13,7 +13,6 @@ public class HelloServlet extends HttpServlet {
 
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
-
     public void destroy() {
     }
 }
