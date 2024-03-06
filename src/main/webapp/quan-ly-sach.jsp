@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -213,6 +214,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <jsp:useBean id="books" scope="request" type="java.util.List"/>
+                                            <c:forEach var="book" items="${books}">
+                                                <tr>
+                                                    <td>${book.getId()}</td>
+                                                    <td>${book.getName()}</td>
+                                                    <td>${book.getAuthor()}</td>
+                                                    <td>${book.getNumber()}</td>
+                                                    <td>${book.getNumberNow()}</td>
+                                                    <td>2</td>
+                                                    <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a>
+                                                        / <a>Xóa</a></td>
+                                                </tr>
+                                            </c:forEach>
                                             <tr>
                                                 <td>1</td>
                                                 <td>Bạn là cậu nhỏ của tớ</td>
@@ -288,7 +302,8 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- column -->
-                    <div class="col-12">
+                    <form method="post" action="quan-ly-sach">
+                        <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Thêm sách</h4>
@@ -336,9 +351,9 @@
 
                                 </script>
                                 <div class="flex">
-                                    <a href="" style="margin-left: 20px;"
+                                    <button type = "submit" style="margin-left: 20px;"
                                         class="btn waves-effect waves-light btn btn-info pull-right text-white">
-                                        Lưu</a>
+                                        Lưu</button>
                                     <a onclick="addRow()"
                                         class="btn waves-effect waves-light btn btn-info pull-right text-white">
                                         + Thêm hàng</a>
@@ -346,6 +361,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->

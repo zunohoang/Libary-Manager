@@ -9,8 +9,8 @@ public class Book {
     private int number_now;
     private String author;
 
-    public Book(String name, String discription, String author, int number, int number_now, int libary_id){
-        this.id = 0;
+    public Book(int id, String name, String discription, String author, int number, int number_now, int libary_id){
+        this.id = id;
         this.name = name;
         this.author = author;
         this.discription = discription;

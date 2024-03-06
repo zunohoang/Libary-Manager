@@ -8,6 +8,7 @@ public class BookServices {
         String queryAddBook = "INSERT INTO books (name, discription, libary_id, number, number_now, author)\n" +
                 "VALUES (?, ?, ?, ?, ?, ?);";
 
+
         return true;
     }
 }
