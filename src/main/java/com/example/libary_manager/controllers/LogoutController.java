@@ -5,14 +5,19 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(name = "quan-ly-nguoi-muon", urlPatterns = {"/quan-ly-nguoi-muon"})
-public class BorrowerController extends HttpServlet {
+@WebServlet(name = "dang-xuat", urlPatterns = {"/dang-xuat"})
+public class LogoutController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("quan-ly-nguoi-muon.jsp").forward(req, resp);
+        HttpSession session = req.getSession();
+        if(session != null){
+            session.invalidate();
+        }
+        resp.sendRedirect("dang-nhap");
     }
 }

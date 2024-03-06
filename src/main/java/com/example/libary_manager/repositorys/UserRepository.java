@@ -11,10 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
+
+    private final MysqlConnect mysqlConnect = new MysqlConnect();
+
     public List<User> getUserByUsernameAndPassword(String username, String password) throws SQLException, ClassNotFoundException {
         List<User> users = new ArrayList<User>();
 
-        Connection connection = MysqlConnect.getConnection();
+        Connection connection = mysqlConnect.getConnection();
         String query = "select * from account u where u.username = ? and u.password = ?";
 
         assert connection != null;

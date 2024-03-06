@@ -11,9 +11,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "home", value = "/home")
+@WebServlet(name = "home", urlPatterns = {"", "/home"})
 public class HomeController extends HttpServlet {
-
 
     @Override
     @SuppressWarnings("unchecked")

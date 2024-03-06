@@ -10,7 +10,7 @@
     <meta name="keywords" content="Quản lý thư viện libary manager">
     <meta name="description" content="Dự án cho cộng đồng">
     <meta name="robots" content="noindex,nofollow">
-    <title>${users.get(0).getName()} LibaryManager</title>
+    <title>LibaryManager</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <!-- Bootstrap Core CSS -->
@@ -124,25 +124,25 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="home" aria-expanded="false"><i
                                     class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach" aria-expanded="false"><i
                                     class="fa fa-book"></i><span class="hide-menu">Quản lý sách</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon" aria-expanded="false"><i
                                     class="fa fa-address-card-o"></i><span class="hide-menu">Quản lý người
                                     mượn</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen" aria-expanded="false"><i
                                     class="fa  fa-group"></i><span class="hide-menu">Quản lý quyền</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan" aria-expanded="false"><i
                                     class="fa fa-user-circle-o"></i><span class="hide-menu">Thông tin cá nhân</span></a>
                         </li>
                     </ul>
                     <div class="text-center mt-4">
-                        <a class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Đăng xuất</a>
+                        <a href="dang-xuat" class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Đăng xuất</a>
                     </div>
                 </nav>
                 <!-- End Sidebar navigation -->

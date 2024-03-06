@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,25 +124,25 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="html/index.html" aria-expanded="false"><i
-                                    class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
+                        <li> <a class="waves-effect waves-dark" href="home" aria-expanded="false"><i
+                                class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach.html" aria-expanded="false"><i
-                                    class="fa fa-book"></i><span class="hide-menu">Quản lý sách</span></a>
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach" aria-expanded="false"><i
+                                class="fa fa-book"></i><span class="hide-menu">Quản lý sách</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon.html" aria-expanded="false"><i
-                                    class="fa fa-address-card-o"></i><span class="hide-menu">Quản lý người
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon" aria-expanded="false"><i
+                                class="fa fa-address-card-o"></i><span class="hide-menu">Quản lý người
                                     mượn</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen.html" aria-expanded="false"><i
-                                    class="fa  fa-group"></i><span class="hide-menu">Quản lý quyền</span></a>
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen" aria-expanded="false"><i
+                                class="fa  fa-group"></i><span class="hide-menu">Quản lý quyền</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan.html" aria-expanded="false"><i
-                                    class="fa fa-user-circle-o"></i><span class="hide-menu">Thông tin cá nhân</span></a>
+                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan" aria-expanded="false"><i
+                                class="fa fa-user-circle-o"></i><span class="hide-menu">Thông tin cá nhân</span></a>
                         </li>
                     </ul>
                     <div class="text-center mt-4">
-                        <a class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Đăng xuất</a>
+                        <a href="dang-xuat" class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Đăng xuất</a>
                     </div>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -164,17 +165,16 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Kho sách</h3>
+                        <h3 class="text-themecolor">Người mượn</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Zuno</a></li>
-                            <li class="breadcrumb-item">Kho sách</li>
-                            <li class="breadcrumb-item active">Tạo hóa đơn</li>
+                            <li class="breadcrumb-item active">Người mượn</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href=""
                             class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
-                            Tạo hóa đơn</a>
+                            Nâng cấp đi :></a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -185,59 +185,11 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- column -->
-                    <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Tạo hóa đơn</h4>
-                                <h6 class="card-subtitle">Cho mượn <code>.book</code></h6>
-                                <form class="form-horizontal form-material">
-                                    <div class="form-group">
-                                        <label class="col-md-12">Tên sách</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">ID Sách</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Người mượn</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">ID người mượn</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div></div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12" style="text-align: center;">
-                                            <button class="btn btn-success">Tạo hóa đơn</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
-                    <!-- column -->
-                    <div class="col-lg-8 d-flex align-items-stretch">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Hóa đơn gần đây</h4>
-                                <h6 class="card-subtitle">Sắp xếp gần đây nhất</h6>
+                                <h4 class="card-title">Danh sách người mượn</h4>
+                                <h6 class="card-subtitle">Heyy <code>.borrower</code></h6>
                                 <div class="searchbar-box">
                                     <input type="text" class="searchbar" name="searchbar" id="mySearchbar"
                                         placeholder="Search">
@@ -252,31 +204,34 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Người mượn</th>
-                                                <th>Tên sách</th>
-                                                <th>Giá</th>
-                                                <th>Trạng thái</th>
-                                                <th>Thời gian tạo</th>
-                                                <th>Chi tiết(In)</th>
+                                                <th>Họ tên</th>
+                                                <th>Năm sinh</th>
+                                                <th>Số sách đã mượn</th>
+                                                <th>Số sách đã trả</th>
+                                                <th>Liên hệ</th>
+                                                <th>Thao tác</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>Nguyễn Văn Hoàng</td>
-                                                <td>Cậu là bạn nhỏ của tớ</td>
-                                                <td>Cho mượn</td>
-                                                <td>Hạn trả 01/01/2025</td>
-                                                <td>9:00PM 01/01/2024</td>
-                                                <td><a href="hoa-don.html?id=1">Chi tiết</a></td>
+                                                <td>04/10/2005</td>
+                                                <td>12</td>
+                                                <td>10</td>
+                                                <td>Email / SMS</td>
+                                                <td><a>Chỉnh sửa</a> / <a>Xóa</a></td>
                                             </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Nguyễn Văn Hoàng</td>
+                                                <td>04/10/2005</td>
+                                                <td>12</td>
+                                                <td>10</td>
+                                                <td>Email / SMS</td>
+                                                <td><a>Chỉnh sửa</a> / <a>Xóa</a></td>
                                         </tbody>
                                     </table>
-                                    <script>
-                                        function createBill(idBook) {
-                                            window.location.href = "tao-hoa-don.html?id=" + idBook + "&name=" + "Bạn là cậu nhỏ của tớ";
-                                        }
-                                    </script>
                                 </div>
                                 <div style="text-align:center;">
                                     <style>
@@ -317,49 +272,128 @@
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Container fluid  -->
+                <!-- End PAge Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- footer -->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <footer class="footer"> © 2024 ZunoLibary by <a href="https://gihub.com/zunohoang">zunohoang</a>
-                </footer>
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Thêm người mượn</h4>
+                                <h6 class="card-subtitle">add <code>.borrower</code></h6>
+                                <div class="table-responsive">
+                                    <table class="table" class="message-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Họ tên</th>
+                                                <th>Năm sinh</th>
+                                                <th>Số sách đã mượn</th>
+                                                <th>Số sách đã trả</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Email</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="add_book">
+                                            <tr id="addRow0">
+                                                <td><input type="text" name="name" placeholder="Nguyễn Văn A"></td>
+                                                <td><input type="text" name="born" placeholder="01/01/2005"></td>
+                                                <td><input type="text" name="pay" value="0"></td>
+                                                <td><input type="text" name="repay" value="0"></td>
+                                                <td><input type="text" name="number" placeholder="0123456789"></td>
+                                                <td><input type="text" name="email" placeholder="abc@gmail.com"></td>
+                                                <td><a onclick="deleteRow(0)">Xóa</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                                <script>
+                                    var countAddRow = 0;
+                                    function addRow() {
+                                        var addBook = document.getElementById("add_book");
+                                        countAddRow++;
+                                        var child = document.createElement("tr");
+                                        child.id = "addRow" + countAddRow;
+                                        child.innerHTML = `
+                                            <td><input type="text" name="name" placeholder="Nguyễn Văn A"></td>
+                                            <td><input type="text" name="born" placeholder="01/01/2005"></td>
+                                            <td><input type="text" name="pay" value="0"></td>
+                                            <td><input type="text" name="repay" value="0"></td>
+                                            <td><input type="text" name="number" placeholder="0123456789"></td>
+                                            <td><input type="text" name="email" placeholder="abc@gmail.com"></td>
+                                            <td><a onclick="deleteRow(`+ countAddRow + `)">Xóa</a></td>
+                                        `;
+                                        addBook.appendChild(child);
+                                    }
+                                    function deleteRow(id) {
+                                        var addRow = document.getElementById("addRow" + id);
+                                        addRow.remove();
+                                    }
+
+                                </script>
+                                <div class="flex">
+                                    <a href="" style="margin-left: 20px;"
+                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                        Lưu</a>
+                                    <a onclick="addRow()"
+                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                        + Thêm hàng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- ============================================================== -->
-                <!-- End footer -->
+                <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2024 ZunoLibary by <a href="https://gihub.com/zunohoang">zunohoang</a> </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Wrapper -->
+        <!-- End Page wrapper  -->
         <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
-        <script src="assets/node_modules/jquery/jquery.min.js"></script>
-        <!-- Bootstrap popper Core JavaScript -->
-        <script src="assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="html/js/perfect-scrollbar.jquery.min.js"></script>
-        <!--Wave Effects -->
-        <script src="html/js/waves.js"></script>
-        <!--Menu sidebar -->
-        <script src="html/js/sidebarmenu.js"></script>
-        <!--Custom JavaScript -->
-        <script src="html/js/custom.min.js"></script>
-        <!-- ============================================================== -->
-        <!-- This page plugins -->
-        <!-- ============================================================== -->
-        <!--morris JavaScript -->
-        <script src="assets/node_modules/raphael/raphael-min.js"></script>
-        <script src="assets/node_modules/morrisjs/morris.min.js"></script>
-        <!--c3 JavaScript -->
-        <script src="assets/node_modules/d3/d3.min.js"></script>
-        <script src="assets/node_modules/c3-master/c3.min.js"></script>
-        <!-- Chart JS -->
-        <script src="html/js/dashboard1.js"></script>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/node_modules/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="html/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="html/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="html/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="html/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="assets/node_modules/morrisjs/morris.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="assets/node_modules/d3/d3.min.js"></script>
+    <script src="assets/node_modules/c3-master/c3.min.js"></script>
+    <!-- Chart JS -->
+    <script src="html/js/dashboard1.js"></script>
 </body>
 
 </html>

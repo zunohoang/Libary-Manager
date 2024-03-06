@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,25 +124,25 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="html/index.html" aria-expanded="false"><i
-                                    class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
+                        <li> <a class="waves-effect waves-dark" href="home" aria-expanded="false"><i
+                                class="fa fa-tachometer"></i><span class="hide-menu">Thống kê</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach.html" aria-expanded="false"><i
-                                    class="fa fa-book"></i><span class="hide-menu">Quản lý sách</span></a>
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-sach" aria-expanded="false"><i
+                                class="fa fa-book"></i><span class="hide-menu">Quản lý sách</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon.html" aria-expanded="false"><i
-                                    class="fa fa-address-card-o"></i><span class="hide-menu">Quản lý người
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-nguoi-muon" aria-expanded="false"><i
+                                class="fa fa-address-card-o"></i><span class="hide-menu">Quản lý người
                                     mượn</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen.html" aria-expanded="false"><i
-                                    class="fa  fa-group"></i><span class="hide-menu">Quản lý quyền</span></a>
+                        <li> <a class="waves-effect waves-dark" href="quan-ly-quyen" aria-expanded="false"><i
+                                class="fa  fa-group"></i><span class="hide-menu">Quản lý quyền</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan.html" aria-expanded="false"><i
-                                    class="fa fa-user-circle-o"></i><span class="hide-menu">Thông tin cá nhân</span></a>
+                        <li> <a class="waves-effect waves-dark" href="thong-tin-ca-nhan" aria-expanded="false"><i
+                                class="fa fa-user-circle-o"></i><span class="hide-menu">Thông tin cá nhân</span></a>
                         </li>
                     </ul>
                     <div class="text-center mt-4">
-                        <a class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Đăng xuất</a>
+                        <a href="dang-xuat" class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Đăng xuất</a>
                     </div>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -180,182 +181,133 @@
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Projects of the Month -->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <!-- Row -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-8 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div>
-                                        <h5 class="card-title">Danh sách quản trị viên</h5>
-                                    </div>
-                                </div>
-                                <div class="table-responsive mt-3 no-wrap">
-                                    <table class="table vm no-th-brd pro-of-month">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2">Người quản lý</th>
-                                                <th>Liên hệ</th>
-                                                <th>Thao tác</th>
-                                                <th>Chỉnh sửa</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="width:50px;"><span class="round">H</span></td>
-                                                <td>
-                                                    <h6>Nguyễn Văn Hoàng</h6><small class="text-muted">Admin
-                                                        System</small>
-                                                </td>
-                                                <td>Email / SMS</td>
-                                                <td>546</td>
-                                                <td>Chỉnh sửa / Xóa</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <!-- Column -->
-                            <div class="col-lg-8 col-xlg-9 col-md-7">
-                                <div class="card">
-                                    <!-- Tab panes -->
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div>
-                                                <h5 class="card-title">Thêm quản trị viên</h5>
-                                            </div>
-                                        </div>
-                                        <form class="form-horizontal form-material mx-2">
-                                            <div class="form-group">
-                                                <label class="col-md-12">Họ tên</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" placeholder="Nguyễn Văn ..."
-                                                        class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="example-email" class="col-md-12">Email</label>
-                                                <div class="col-md-12">
-                                                    <input type="email" placeholder="abc@admin.com"
-                                                        class="form-control form-control-line" name="example-email"
-                                                        id="example-email">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Password</label>
-                                                <div class="col-md-12">
-                                                    <input type="password" placeholder="*********"
-                                                        class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Số điện thoại</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" placeholder="123 456 7890"
-                                                        class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Ghi chú</label>
-                                                <div class="col-md-12">
-                                                    <textarea rows="5"
-                                                        class="form-control form-control-line"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-12">Chức vụ</label>
-                                                <div class="col-sm-12">
-                                                    <select class="form-control form-control-line">
-                                                        <option>Admin System</option>
-                                                        <option>Manager</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <button class="btn btn-success">Thêm mới</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Column -->
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Projects of the Month -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <!-- ============================================================== -->
-                                <!-- Tổng quan -->
-                                <!-- ============================================================== -->
-                                <h4 class="card-title">Thông báo</h4>
-                                <h6 class="card-subtitle">Gửi thông báo</h6>
-                                <p>*Cập nhật sau</p>
+                                <center class="mt-4"> <img src="assets/images/users/5.jpg" class="img-circle"
+                                                           width="150" />
+                                    <h4 class="card-title mt-2">Nguyễn Văn Hoàng</h4>
+                                    <h6 class="card-subtitle">Admin System</h6>
+                                    <div class="row text-center justify-content-md-center">
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i
+                                                    class="fa fa-user"></i>
+                                                <font class="font-medium">0</font>
+                                            </a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i
+                                                    class="fa fa-camera"></i>
+                                                <font class="font-medium">0</font>
+                                            </a></div>
+                                    </div>
+                                </center>
                             </div>
                         </div>
                     </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Tab panes -->
+                            <div class="card-body">
+                                <form class="form-horizontal form-material mx-2">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Họ Tên</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Nguyễn Văn Hoàng"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="abc@admin.com"
+                                                class="form-control form-control-line" name="example-email"
+                                                id="example-email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Mật khẩu</label>
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="*********"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Số điện thoại</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="123 456 7890"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Ghi chú</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success">Cập nhật thông tin</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
                 </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <footer class="footer"> © 2024 ZunoLibary by <a href="https://gihub.com/zunohoang">zunohoang</a>
+                </footer>
+                <!-- ============================================================== -->
+                <!-- End footer -->
+                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer"> © 2024 ZunoLibary by <a href="https://gihub.com/zunohoang">zunohoang</a> </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
+            <!-- End Page wrapper  -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Wrapper -->
         <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap popper Core JavaScript -->
-    <script src="assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="html/js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="html/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="html/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="html/js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugins -->
-    <!-- ============================================================== -->
-    <!--morris JavaScript -->
-    <script src="assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="assets/node_modules/morrisjs/morris.min.js"></script>
-    <!--c3 JavaScript -->
-    <script src="assets/node_modules/d3/d3.min.js"></script>
-    <script src="assets/node_modules/c3-master/c3.min.js"></script>
-    <!-- Chart JS -->
-    <script src="html/js/dashboard1.js"></script>
-    <script>
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="assets/node_modules/jquery/jquery.min.js"></script>
+        <!-- Bootstrap popper Core JavaScript -->
+        <script src="assets/node_modules/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="html/js/perfect-scrollbar.jquery.min.js"></script>
+        <!--Wave Effects -->
+        <script src="html/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="html/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="html/js/custom.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- This page plugins -->
+        <!-- ============================================================== -->
+        <!--morris JavaScript -->
+        <script src="assets/node_modules/raphael/raphael-min.js"></script>
+        <script src="assets/node_modules/morrisjs/morris.min.js"></script>
+        <!--c3 JavaScript -->
+        <script src="assets/node_modules/d3/d3.min.js"></script>
+        <script src="assets/node_modules/c3-master/c3.min.js"></script>
+        <!-- Chart JS -->
+        <script src="html/js/dashboard1.js"></script>
+        <script>
 
-    </script>
+        </script>
 </body>
 
 </html>
