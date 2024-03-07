@@ -1,4 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.example.libary_manager.models.Book" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -214,40 +215,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <jsp:useBean id="books" scope="request" type="java.util.List"/>
-                                            <c:forEach var="book" items="${books}">
+                                            <% List<Book> books = (List<Book>) request.getAttribute("books");
+                                                for (Book book : books) { %>
                                                 <tr>
-                                                    <td>${book.getId()}</td>
-                                                    <td>${book.getName()}</td>
-                                                    <td>${book.getAuthor()}</td>
-                                                    <td>${book.getNumber()}</td>
-                                                    <td>${book.getNumberNow()}</td>
+                                                    <td><%= book.getId() %></td>
+                                                    <td><%= book.getName() %></td>
+                                                    <td><%= book.getAuthor() %></td>
+                                                    <td><%= book.getNumber() %></td>
+                                                    <td><%= book.getNumber_now() %></td>
                                                     <td>2</td>
-                                                    <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a>
-                                                        / <a>Xóa</a></td>
+                                                    <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a> / <a>Xóa</a></td>
                                                 </tr>
-                                            </c:forEach>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Bạn là cậu nhỏ của tớ</td>
-                                                <td>Jun Phạm</td>
-                                                <td>100</td>
-                                                <td>38</td>
-                                                <td>2</td>
-                                                <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a>
-                                                    / <a>Xóa</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Cậu là bạn nhỏ của tớ</td>
-                                                <td>Jun Phạm</td>
-                                                <td>99</td>
-                                                <td>88</td>
-                                                <td>8</td>
-                                                <td><a onclick="createBill(2)">Cho mượn</a> / <a>Chỉnh sửa</a> /
-                                                    <a>Xóa</a>
-                                                </td>
-                                            </tr>
+                                            <% } %>
                                         </tbody>
                                     </table>
                                     <script>

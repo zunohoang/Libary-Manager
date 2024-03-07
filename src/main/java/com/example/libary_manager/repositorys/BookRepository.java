@@ -72,6 +72,10 @@ public class BookRepository {
             books.add(book);
         }
 
+        preparedStatement.close();
+
+        connection.close();
+
         return books;
     }
 }

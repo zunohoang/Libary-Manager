@@ -43,7 +43,7 @@ public class BookController extends HttpServlet {
 
         try {
             if(bookRepository.addBook(book)){
-                req.getRequestDispatcher("quan-ly-sach.jsp").forward(req, resp);
+                resp.sendRedirect("quan-ly-sach");
             } else {
                 req.getRequestDispatcher("pages-error-404.html").forward(req, resp);
             }
