@@ -38,7 +38,7 @@ public class LibaryController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        int idLibary = Integer.parseInt(req.getParameter("idLibary"));
+        int idLibary = Integer.parseInt(req.getParameter("libaryId"));
 
         Libary libary = new Libary();
         libary.setId(idLibary);

@@ -216,17 +216,20 @@
                                         </thead>
                                         <tbody>
                                             <% List<Book> books = (List<Book>) request.getAttribute("books");
-                                                for (Book book : books) { %>
-                                                <tr>
-                                                    <td><%= book.getId() %></td>
-                                                    <td><%= book.getName() %></td>
-                                                    <td><%= book.getAuthor() %></td>
-                                                    <td><%= book.getNumber() %></td>
-                                                    <td><%= book.getNumber_now() %></td>
-                                                    <td>2</td>
-                                                    <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a> / <a>Xóa</a></td>
-                                                </tr>
-                                            <% } %>
+                                                if(!books.isEmpty()){
+                                                    for (Book book : books) { %>
+                                                    <tr>
+                                                        <td><%= book.getId() %></td>
+                                                        <td><%= book.getName() %></td>
+                                                        <td><%= book.getAuthor() %></td>
+                                                        <td><%= book.getNumber() %></td>
+                                                        <td><%= book.getNumber_now() %></td>
+                                                        <td>2</td>
+                                                        <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a> / <a>Xóa</a></td>
+                                                    </tr>
+                                            <%      }
+                                                }
+                                            %>
                                         </tbody>
                                     </table>
                                     <script>

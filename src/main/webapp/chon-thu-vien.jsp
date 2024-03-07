@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.libary_manager.models.Libary" %><%--
   Created by IntelliJ IDEA.
   User: ADMIND
   Date: 07/03/2024
@@ -453,20 +454,28 @@
         border: 1px solid antiquewhite;
     }
 </style>
-<form method="post" action="dang-nhap" id="login-form" class="login-form" autocomplete="off" role="main">
+<form method="post" action="chon-thu-vien" id="login-form" class="login-form" autocomplete="off" >
     <div class="full-option">
+<%--        <div class="center">--%>
+<%--            <div class="option-libary" id="1">--%>
+<%--                <p class="item-text">1</p>--%>
+<%--            </div>--%>
+<%--            <p>THUVIEN1</p>--%>
+<%--        </div>--%>
+<%
+    List<Libary> libaries = (List<Libary>) request.getAttribute("libaries");
+    if(!libaries.isEmpty()){
+    for(Libary libary: libaries){
+%>
+        <button name="libaryId" value="<%=libary.getId()%>" >
         <div class="center">
-            <div class="option-libary" id="1">
-                <p class="item-text">1</p>
+            <div class="option-libary" id="<%=libary.getId()%>">
+                <p class="item-text"><%=libary.getId()%></p>
             </div>
-            <p>THUVIEN1</p>
+            <p><%=libary.getName()%></p>
         </div>
-        <div class="center">
-            <div class="option-libary" id="1">
-                <p class="item-text">2</p>
-            </div>
-            <p>THUVIEN2</p>
-        </div>
+        </button>
+<% }} %>
     </div>
 </form>
 </body>

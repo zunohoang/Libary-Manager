@@ -15,36 +15,56 @@ public class UserRepository {
 
     private final MysqlConnect mysqlConnect = new MysqlConnect();
 
-    public User getUserByUsernameAndPassword(String username, String password) throws SQLException, ClassNotFoundException {
-        List<User> users = new ArrayList<User>();
+    public User getUserByUsernameAndPassword(String username, String password) throws SQLException {
+        User user = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
-        Connection connection = mysqlConnect.getConnection();
-        String query = "select * from account u where u.username = ? and u.password = ?";
+        try {
+            // Lấy kết nối đến cơ sở dữ liệu
+            connection = mysqlConnect.getConnection();
 
-        assert connection != null;
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, username);
-        preparedStatement.setString(2, password);
+            // Chuẩn bị câu lệnh SQL với LIMIT 1
+            String query = "SELECT id, name FROM account WHERE username = ? AND password = ? LIMIT 1";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
 
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while(resultSet.next()){
-            User user = new User();
-            user.setId(resultSet.getInt("id"));
-            user.setName(resultSet.getString("name"));
-            user.setUsername(username);
-            user.setPassword(password);
-            users.add(user);
+            // Thực thi truy vấn
+            resultSet = preparedStatement.executeQuery();
+
+            // Nếu có kết quả, tạo đối tượng người dùng
+            if (resultSet.next()) {
+                user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setUsername(username);
+                user.setPassword(password);
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            // Đóng tất cả tài nguyên
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
         }
-        connection.close();
 
-        return users.get(0);
+        return user;
     }
 
     public List<Libary> getLibaryByUserId(int idUser) throws SQLException, ClassNotFoundException {
         List<Libary> libaries = new ArrayList<Libary>();
 
         Connection connection = mysqlConnect.getConnection();
-        String query = "select * from account_libary_room u where u.account_id = ?";
+        String query = "select * from account_libary_room u, libary_room v  where u.account_id = ?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, idUser);
@@ -52,7 +72,8 @@ public class UserRepository {
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
             Libary libary = new Libary();
-            libary.setId(resultSet.getInt("id"));
+            libary.setId(resultSet.getInt("v.id"));
+            libary.setName(resultSet.getString("name"));
             libaries.add(libary);
         }
 

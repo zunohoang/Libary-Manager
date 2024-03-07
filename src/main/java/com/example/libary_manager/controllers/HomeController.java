@@ -15,14 +15,13 @@ import java.util.List;
 public class HomeController extends HttpServlet {
 
     @Override
-    @SuppressWarnings("unchecked")
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
-        List<User> users = null;
-        if(session.getAttribute("users") != null){
-            users = (List<User>) session.getAttribute("users");
+        User user = null;
+        if(session.getAttribute("user") != null){
+            user = (User) session.getAttribute("user");
             System.out.println("Đăng nhập thành công");
-            System.out.println("Name: " + users.get(0).getName());
+            System.out.println("Name: " + user.getName());
             request.getRequestDispatcher("index.jsp").forward(request,response);
         } else {
             System.out.println("Chuyển hương qua trang đặp nhập (Không có session)");

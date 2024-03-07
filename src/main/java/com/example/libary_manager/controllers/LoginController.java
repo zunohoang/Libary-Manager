@@ -33,13 +33,14 @@ public class LoginController extends HttpServlet {
         User user = null;
         try {
             user = userRepository.getUserByUsernameAndPassword(username, password);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         if(user != null){
+            System.out.println("Dang nhap thanh cong");
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect("home");
+            response.sendRedirect("chon-thu-vien");
         } else {
             request.getRequestDispatcher("dang-nhap.jsp").forward(request, response);
         }

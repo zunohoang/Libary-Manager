@@ -31,7 +31,7 @@ public class BookController extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(books.get(0).getAuthor());
+
         req.setAttribute("books", books);
         req.getRequestDispatcher("quan-ly-sach.jsp").forward(req, resp);
     }
