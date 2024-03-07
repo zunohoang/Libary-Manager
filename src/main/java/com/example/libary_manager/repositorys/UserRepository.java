@@ -1,6 +1,7 @@
 package com.example.libary_manager.repositorys;
 
 import com.example.libary_manager.configs.MysqlConnect;
+import com.example.libary_manager.models.Libary;
 import com.example.libary_manager.models.User;
 
 import java.sql.Connection;
@@ -14,7 +15,7 @@ public class UserRepository {
 
     private final MysqlConnect mysqlConnect = new MysqlConnect();
 
-    public List<User> getUserByUsernameAndPassword(String username, String password) throws SQLException, ClassNotFoundException {
+    public User getUserByUsernameAndPassword(String username, String password) throws SQLException, ClassNotFoundException {
         List<User> users = new ArrayList<User>();
 
         Connection connection = mysqlConnect.getConnection();
@@ -36,6 +37,29 @@ public class UserRepository {
         }
         connection.close();
 
-        return users;
+        return users.get(0);
+    }
+
+    public List<Libary> getLibaryByUserId(int idUser) throws SQLException, ClassNotFoundException {
+        List<Libary> libaries = new ArrayList<Libary>();
+
+        Connection connection = mysqlConnect.getConnection();
+        String query = "select * from account_libary_room u where u.account_id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, idUser);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            Libary libary = new Libary();
+            libary.setId(resultSet.getInt("id"));
+            libaries.add(libary);
+        }
+
+        preparedStatement.close();
+
+        connection.close();
+
+        return libaries;
     }
 }

@@ -1,12 +1,14 @@
 package com.example.libary_manager.controllers;
 
 import com.example.libary_manager.models.Book;
+import com.example.libary_manager.models.Libary;
 import com.example.libary_manager.repositorys.BookRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import javax.sound.midi.Soundbank;
 import java.io.IOException;
@@ -19,7 +21,10 @@ public class BookController extends HttpServlet {
     private final BookRepository bookRepository = new BookRepository();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int libaryId = 1;
+        HttpSession session = req.getSession();
+
+        int libaryId = ((Libary)session.getAttribute("libary")).getId();
+
         List<Book> books = null;
         try {
             books = bookRepository.selectBook(libaryId);
@@ -38,7 +43,11 @@ public class BookController extends HttpServlet {
         int number = Integer.parseInt(req.getParameter("number"));
         int numberNow = Integer.parseInt(req.getParameter("number"));
         String discription = "chu nang nay duoc cap nhat sao";
-        int libaryId = 1;
+
+        HttpSession session = req.getSession();
+
+        int libaryId = ((Libary)session.getAttribute("libary")).getId();
+
         Book book = new Book(1, name, discription, author, number, numberNow, libaryId);
 
         try {

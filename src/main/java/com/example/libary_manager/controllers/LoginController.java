@@ -30,15 +30,15 @@ public class LoginController extends HttpServlet {
         System.out.println(" ");
         System.out.println("<-- Đăng Nhập -->");
         System.out.println("Tài khoản: " + username + " | Mật khẩu: " + password);
-        List<User> users = null;
+        User user = null;
         try {
-            users = userRepository.getUserByUsernameAndPassword(username, password);
+            user = userRepository.getUserByUsernameAndPassword(username, password);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        if(!users.isEmpty()){
+        if(user != null){
             HttpSession session = request.getSession();
-            session.setAttribute("users", users);
+            session.setAttribute("user", user);
             response.sendRedirect("home");
         } else {
             request.getRequestDispatcher("dang-nhap.jsp").forward(request, response);
