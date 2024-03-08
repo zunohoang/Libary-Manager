@@ -266,11 +266,28 @@
                                     <br>
                                     <div class="pagination">
                                         <a href="#">&laquo;</a>
-                                        <a href="#" class="active">1</a>
-                                        <a href="#">2</a>
-                                        <a href="#">3</a>
+                                        <a href="?tag=1" id="1">1</a>
+                                        <a href="?tag=2" id="2">2</a>
+                                        <a href="?tag=3" id="3">3</a>
                                         <a href="#">&raquo;</a>
                                     </div>
+                                    <script>
+                                        var currentUrl = window.location.href;
+                                        var urlParams = new URLSearchParams(new URL(currentUrl).search);
+                                        var tagValue = urlParams.get("tag");
+
+                                        var paginationLinks = document.querySelectorAll(".pagination a");
+
+                                        if (tagValue == null) {
+                                            tagValue = 1;
+                                        }
+
+                                        paginationLinks.forEach(function (link) {
+                                            if (link.id == tagValue) {
+                                                link.classList.add("active");
+                                            }
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>

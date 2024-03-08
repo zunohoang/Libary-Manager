@@ -21,13 +21,19 @@ public class BookController extends HttpServlet {
     private final BookRepository bookRepository = new BookRepository();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int tag = 1;
+        if(req.getParameter("tag") != null){
+            tag = Integer.parseInt(req.getParameter("tag"));
+        }
+
+        System.out.println(tag);
         HttpSession session = req.getSession();
 
         int libaryId = ((Libary)session.getAttribute("libary")).getId();
 
         List<Book> books = null;
         try {
-            books = bookRepository.selectBook(libaryId);
+            books = bookRepository.selectBook(libaryId, tag);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
