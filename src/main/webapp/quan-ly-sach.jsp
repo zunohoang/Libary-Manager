@@ -224,8 +224,14 @@
                                                         <td><%= book.getAuthor() %></td>
                                                         <td><%= book.getNumber() %></td>
                                                         <td><%= book.getNumber_now() %></td>
-                                                        <td>2</td>
-                                                        <td><a onclick="createBill(1)">Cho mượn</a> / <a>Chỉnh sửa</a> / <a>Xóa</a></td>
+                                                        <td>0</td>
+                                                        <td display="flex">
+                                                            <button onclick="createBill(1)">Cho mượn</button>
+                                                            <button>Chỉnh sửa</button>
+                                                            <form action="quan-ly-sach" method="delete">
+                                                                <button type="submit" name="submit" value="3">Xóa</button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                             <%      }
                                                 }

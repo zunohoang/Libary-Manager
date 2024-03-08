@@ -18,12 +18,12 @@ public class BookRepository {
 
     private CacheBookSevice cacheBook = new CacheBookSevice();
 
-    private CacheLengthTableService cacheLengthTableService = new CacheLengthTableService();
+    private CacheLengthTableService cacheLengthTable = new CacheLengthTableService();
 
     public boolean addBook(Book book) throws SQLException, ClassNotFoundException {
-        cacheLengthTableService.createCache(book.getLibary_id(), cacheLengthTableService.getCache(book.getLibary_id()) + 1);
-        book.setId(cacheLengthTableService.getCache(book.getLibary_id()));
-        cacheBook.addCache(book.getLibary_id(), book);
+        int lengthTableBooks = cacheLengthTable.getCache("books");
+        cacheLengthTable.createCache("books", lengthTableBooks + 1);
+        book.setId(lengthTableBooks + 1);
 
         Connection connection = mysqlConnect.getConnection();
         String query = "insert into books (name, discription, libary_id, number, number_now, author) values (?, ?, ?, ?, ?, ?)";
@@ -90,7 +90,8 @@ public class BookRepository {
         connection.close();
 
         if(tag == 1){
-            cacheLengthTableService.createCache(libaryId, books.get(0).getLibary_id());
+            cacheLengthTable.createCache("books", books.get(0).getLibary_id());
+            System.out.println(cacheLengthTable.getCache("books"));
             cacheBook.createCache(libaryId, books);
         }
 

@@ -8,13 +8,14 @@ import java.util.List;
 import java.util.Map;
 
 public class CacheLengthTableService {
-    private Map<Integer, Integer> cache = new HashMap<>();
 
-    public Integer getCache(int libaryId){
-        return cache.get(libaryId);
+    private Map<String, Integer> cache = new HashMap<>();
+
+    public Integer getCache(String nameTable){
+        return cache.get(nameTable);
     }
 
-    public void createCache(int libaryId, int lengthTable){
-        cache.put(libaryId, lengthTable);
+    public void createCache(String nameTable, int lengthTable){
+        cache.put(nameTable, lengthTable);
     }
 }
