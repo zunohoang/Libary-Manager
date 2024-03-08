@@ -4,23 +4,25 @@ import com.example.libary_manager.configs.MysqlConnect;
 import com.example.libary_manager.models.Book;
 import com.example.libary_manager.models.User;
 import com.example.libary_manager.services.CacheBookSevice;
+import com.example.libary_manager.services.CacheLengthTableService;
 
 import java.lang.reflect.MalformedParameterizedTypeException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BookRepository {
     private final MysqlConnect mysqlConnect = new MysqlConnect();
 
     private CacheBookSevice cacheBook = new CacheBookSevice();
 
+    private CacheLengthTableService cacheLengthTableService = new CacheLengthTableService();
+
     public boolean addBook(Book book) throws SQLException, ClassNotFoundException {
+        cacheLengthTableService.createCache(book.getLibary_id(), cacheLengthTableService.getCache(book.getLibary_id()) + 1);
+        book.setId(cacheLengthTableService.getCache(book.getLibary_id()));
         cacheBook.addCache(book.getLibary_id(), book);
 
         Connection connection = mysqlConnect.getConnection();
@@ -60,6 +62,10 @@ public class BookRepository {
     }
 
     public List<Book> selectBook(int libaryId, int tag) throws SQLException, ClassNotFoundException {
+        if(tag == 1 && (cacheBook.getCache(libaryId)) != null){
+            return cacheBook.getCache(libaryId);
+        }
+
         List<Book> books = new ArrayList<Book>();
 
         Connection connection = mysqlConnect.getConnection();
@@ -69,7 +75,7 @@ public class BookRepository {
 
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
-            int id = resultSet.getInt("id");
+            int id = resultSet.getInt("id") + 24000;
             String title = resultSet.getString("name");
             String author = resultSet.getString("author");
             int number = resultSet.getInt("number");
@@ -82,6 +88,11 @@ public class BookRepository {
         preparedStatement.close();
 
         connection.close();
+
+        if(tag == 1){
+            cacheLengthTableService.createCache(libaryId, books.get(0).getLibary_id());
+            cacheBook.createCache(libaryId, books);
+        }
 
         return books;
     }

@@ -23,7 +23,6 @@ public class CacheBookSevice {
         List<Book> books = new ArrayList<Book>();
         books = cache.get(libaryId);
 
-        // xoa phan tu cuoi va them phan tu vao dau
         if(books.size() > 10){
             books.remove(books.size() - 1);
         }
