@@ -196,28 +196,28 @@
                                         <label class="col-md-12">Tên sách</label>
                                         <div class="col-md-12">
                                             <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
+                                                class="form-control form-control-line" name="nameBook">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">ID Sách</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
+                                            <input type="text" placeholder="Nhập ID sách"
+                                                class="form-control form-control-line" name="idBook">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Người mượn</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
+                                            <input type="text" placeholder="Nhập tên người mượn"
+                                                class="form-control form-control-line" name="nameBorrower">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">ID người mượn</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Nhập tên sách"
-                                                class="form-control form-control-line">
+                                            <input type="text" placeholder="Nhập ID người mượn"
+                                                class="form-control form-control-line" name="idBorrower">
                                         </div>
                                     </div>
                                     <div></div>
@@ -227,6 +227,16 @@
                                         </div>
                                     </div>
                                 </form>
+                                <script>
+                                    var currentUrl = window.location.href;
+                                    var urlParams = new URLSearchParams(new URL(currentUrl).search);
+                                    var idBookValue = urlParams.get("id");
+                                    var nameBookValue = urlParams.get("name");
+                                    console.log(idBookValue, nameBookValue);
+
+                                    document.getElementsByName("idBook")[0].value = idBookValue;
+                                    document.getElementsByName("nameBook")[0].value = nameBookValue;
+                                </script>
                             </div>
                         </div>
                     </div>

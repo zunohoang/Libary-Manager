@@ -226,7 +226,7 @@
                                                         <td><%= book.getNumber_now() %></td>
                                                         <td>0</td>
                                                         <td display="flex">
-                                                            <button onclick="createBill(<%=book.getId()%>, <%= book.getName() %>)">Cho mượn</button>
+                                                            <button onclick="createBill(<%=book.getId()%>, '<%= book.getName() %>')">Cho mượn</button>
                                                             <button>Chỉnh sửa</button>
                                                             <button onclick="deleteBook(<%=book.getId()%>)">Xóa</button>
                                                         </td>
@@ -252,7 +252,7 @@
                                                 });
                                         }
                                         function createBill(idBook, nameBook) {
-                                            window.location.href = "tao-hoa-don.jsp?id=" + idBook + "&name=" + nameBook;
+                                            window.location.href = "tao-hoa-don?id=" + idBook + "&name=" + nameBook;
                                         }
                                     </script>
                                 </div>
