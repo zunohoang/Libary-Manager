@@ -2,11 +2,9 @@ package com.example.libary_manager.repositorys;
 
 import com.example.libary_manager.configs.MysqlConnect;
 import com.example.libary_manager.models.Book;
-import com.example.libary_manager.models.User;
 import com.example.libary_manager.services.CacheBookSevice;
 import com.example.libary_manager.services.CacheLengthTableService;
 
-import java.lang.reflect.MalformedParameterizedTypeException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,9 +19,7 @@ public class BookRepository {
     private CacheLengthTableService cacheLengthTable = new CacheLengthTableService();
 
     public boolean addBook(Book book) throws SQLException, ClassNotFoundException {
-        int lengthTableBooks = cacheLengthTable.getCache("books");
-        cacheLengthTable.createCache("books", lengthTableBooks + 1);
-        book.setId(lengthTableBooks + 1);
+        cacheBook.resetCacheOfLibary(book.getLibary_id());
 
         Connection connection = mysqlConnect.getConnection();
         String query = "insert into books (name, discription, libary_id, number, number_now, author) values (?, ?, ?, ?, ?, ?)";
@@ -45,7 +41,11 @@ public class BookRepository {
         return rows > 0;
     }
 
-    public boolean deleteBook(int id) throws SQLException, ClassNotFoundException {
+    public void deleteBook(int id, int libaryId) throws SQLException, ClassNotFoundException {
+        cacheBook.resetCacheOfLibary(libaryId);
+
+        id -= 24000;
+
         Connection connection = mysqlConnect.getConnection();
         String query = "delete from books where id = ?";
 
@@ -58,11 +58,11 @@ public class BookRepository {
 
         connection.close();
 
-        return rows > 0;
     }
 
     public List<Book> selectBook(int libaryId, int tag) throws SQLException, ClassNotFoundException {
         if(tag == 1 && (cacheBook.getCache(libaryId)) != null){
+            System.out.println("Hien thu tag 1 tu cache");
             return cacheBook.getCache(libaryId);
         }
 

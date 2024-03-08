@@ -30,4 +30,8 @@ public class CacheBookSevice {
 
         cache.put(libaryId, books);
     }
+
+    public void resetCacheOfLibary(int libaryId){
+        cache.put(libaryId, null);
+    }
 }

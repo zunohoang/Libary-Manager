@@ -69,6 +69,16 @@ public class BookController extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Dodelete");
+        int bookId = Integer.parseInt(req.getParameter("id"));
+
+        HttpSession session = req.getSession();
+
+        int libaryId = ((Libary)session.getAttribute("libary")).getId();
+
+        try {
+            bookRepository.deleteBook(bookId, libaryId);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

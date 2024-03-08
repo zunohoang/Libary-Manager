@@ -226,11 +226,9 @@
                                                         <td><%= book.getNumber_now() %></td>
                                                         <td>0</td>
                                                         <td display="flex">
-                                                            <button onclick="createBill(1)">Cho mượn</button>
+                                                            <button onclick="createBill(<%=book.getId()%>, <%= book.getName() %>)">Cho mượn</button>
                                                             <button>Chỉnh sửa</button>
-                                                            <form action="quan-ly-sach" method="delete">
-                                                                <button type="submit" name="submit" value="3">Xóa</button>
-                                                            </form>
+                                                            <button onclick="deleteBook(<%=book.getId()%>)">Xóa</button>
                                                         </td>
                                                     </tr>
                                             <%      }
@@ -239,8 +237,22 @@
                                         </tbody>
                                     </table>
                                     <script>
-                                        function createBill(idBook) {
-                                            window.location.href = "tao-hoa-don.jsp?id=" + idBook + "&name=" + "Bạn là cậu nhỏ của tớ";
+                                        function deleteBook(idBook){
+                                            fetch('quan-ly-sach?id=' + idBook, {
+                                                method: 'DELETE',
+                                            })
+                                                .then(response => {
+                                                    if (!response.ok) {
+                                                        alert("Lỗi")
+                                                    }
+                                                    window.location.href = "quan-ly-sach";
+                                                })
+                                                .catch(error => {
+                                                    alert("Lỗi")
+                                                });
+                                        }
+                                        function createBill(idBook, nameBook) {
+                                            window.location.href = "tao-hoa-don.jsp?id=" + idBook + "&name=" + nameBook;
                                         }
                                     </script>
                                 </div>
