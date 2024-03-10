@@ -13,6 +13,17 @@ public class Bill {
     private Date timeCreate;
     private Date timeLimit;
 
+    public Bill(){}
+    public Bill(int id, String nameBook, String nameBorrower, int idBook,
+                int idBorrower,int idLibary){
+        this.id = id;
+        this.nameBook = nameBook;
+        this.nameBorrower = nameBorrower;
+        this.idBook = idBook;
+        this.idBorrower = idBorrower;
+        this.idLibary = idLibary;
+    }
+
     public int getId() {
         return id;
     }
