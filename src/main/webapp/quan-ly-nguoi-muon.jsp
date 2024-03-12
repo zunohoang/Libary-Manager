@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.libary_manager.models.Borrower" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -213,25 +215,40 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <%
+                                            List<Borrower> borrowers = (List<Borrower>) request.getAttribute("borrowers");
+                                            for(Borrower borrower: borrowers){
+                                        %>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Nguyễn Văn Hoàng</td>
-                                                <td>04/10/2005</td>
-                                                <td>12</td>
-                                                <td>10</td>
+                                                <td><%=borrower.getId()%></td>
+                                                <td><%=borrower.getName()%></td>
+                                                <td><%=borrower.getBorn()%></td>
+                                                <td><%=borrower.getNumberBook()%></td>
+                                                <td><%=borrower.getBookCompleted()%></td>
                                                 <td>Email / SMS</td>
-                                                <td><a>Chỉnh sửa</a> / <a>Xóa</a></td>
+                                                <td><a>Chỉnh sửa</a> / <a onclick="deleteBorrower(<%=borrower.getId()%>)">Xóa</a></td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Nguyễn Văn Hoàng</td>
-                                                <td>04/10/2005</td>
-                                                <td>12</td>
-                                                <td>10</td>
-                                                <td>Email / SMS</td>
-                                                <td><a>Chỉnh sửa</a> / <a>Xóa</a></td>
+                                        <%
+                                            }
+                                        %>
                                         </tbody>
                                     </table>
+                                    <script>
+                                        function deleteBorrower(idBorrower){
+                                            fetch('quan-ly-nguoi-muon?id=' + idBorrower, {
+                                                method: 'DELETE',
+                                            })
+                                                .then(response => {
+                                                    if (!response.ok) {
+                                                        alert("Lỗi")
+                                                    }
+                                                    window.location.href = "quan-ly-nguoi-muon";
+                                                })
+                                                .catch(error => {
+                                                    alert("Lỗi")
+                                                });
+                                        }
+                                    </script>
                                 </div>
                                 <div style="text-align:center;">
                                     <style>
@@ -261,11 +278,28 @@
                                     <br>
                                     <div class="pagination">
                                         <a href="#">&laquo;</a>
-                                        <a href="#" class="active">1</a>
-                                        <a href="#">2</a>
-                                        <a href="#">3</a>
+                                        <a href="?tag=1" id="1">1</a>
+                                        <a href="?tag=2" id="2">2</a>
+                                        <a href="?tag=3" id="3">3</a>
                                         <a href="#">&raquo;</a>
                                     </div>
+                                    <script>
+                                        var currentUrl = window.location.href;
+                                        var urlParams = new URLSearchParams(new URL(currentUrl).search);
+                                        var tagValue = urlParams.get("tag");
+
+                                        var paginationLinks = document.querySelectorAll(".pagination a");
+
+                                        if (tagValue == null) {
+                                            tagValue = 1;
+                                        }
+
+                                        paginationLinks.forEach(function (link) {
+                                            if (link.id == tagValue) {
+                                                link.classList.add("active");
+                                            }
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -279,6 +313,7 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- column -->
+                    <form method="post" action="quan-ly-nguoi-muon">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -300,10 +335,10 @@
                                         <tbody id="add_book">
                                             <tr id="addRow0">
                                                 <td><input type="text" name="name" placeholder="Nguyễn Văn A"></td>
-                                                <td><input type="text" name="born" placeholder="01/01/2005"></td>
-                                                <td><input type="text" name="pay" value="0"></td>
-                                                <td><input type="text" name="repay" value="0"></td>
-                                                <td><input type="text" name="number" placeholder="0123456789"></td>
+                                                <td><input type="date" name="born" placeholder="01/01/2005"></td>
+                                                <td><input type="text" name="number_book" value="0"></td>
+                                                <td><input type="text" name="number_completed" value="0"></td>
+                                                <td><input type="text" name="number_phone" placeholder="0123456789"></td>
                                                 <td><input type="text" name="email" placeholder="abc@gmail.com"></td>
                                                 <td><a onclick="deleteRow(0)">Xóa</a></td>
                                             </tr>
@@ -320,7 +355,7 @@
                                         child.id = "addRow" + countAddRow;
                                         child.innerHTML = `
                                             <td><input type="text" name="name" placeholder="Nguyễn Văn A"></td>
-                                            <td><input type="text" name="born" placeholder="01/01/2005"></td>
+                                            <td><input type="date" name="born" placeholder="01/01/2005"></td>
                                             <td><input type="text" name="pay" value="0"></td>
                                             <td><input type="text" name="repay" value="0"></td>
                                             <td><input type="text" name="number" placeholder="0123456789"></td>
@@ -336,7 +371,7 @@
 
                                 </script>
                                 <div class="flex">
-                                    <a href="" style="margin-left: 20px;"
+                                    <a type="submit" style="margin-left: 20px;"
                                         class="btn waves-effect waves-light btn btn-info pull-right text-white">
                                         Lưu</a>
                                     <a onclick="addRow()"
@@ -346,6 +381,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
