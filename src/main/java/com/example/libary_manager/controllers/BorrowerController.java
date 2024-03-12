@@ -77,9 +77,14 @@ public class BorrowerController extends HttpServlet {
 
         Borrower borrower = new Borrower(0, name, born, number_phone, email, number_book, number_completed, idLibary);
         System.out.println(borrower);
+
         try {
-            borrowerRepository.addBorrower(borrower);
-            resp.sendRedirect("quan-ly-nguoi-muon");
+            if(borrowerRepository.addBorrower(borrower)){
+                resp.sendRedirect("quan-ly-nguoi-muon");
+            } else {
+                req.getRequestDispatcher("pages-error-404.html").forward(req, resp);
+            }
+
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

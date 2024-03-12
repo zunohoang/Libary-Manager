@@ -10,30 +10,41 @@ public class Bill {
     private int idBorrower;
     private int idLibary;
 
-    private Date timeCreate;
-    private Date timeLimit;
+    private Date timeStart;
+    private Date timeEnd;
 
     public Bill(){}
     public Bill(int id, String nameBook, String nameBorrower, int idBook,
-                int idBorrower,int idLibary){
+                int idBorrower,int idLibary, Date timeStart, Date timeEnd){
         this.id = id;
         this.nameBook = nameBook;
         this.nameBorrower = nameBorrower;
         this.idBook = idBook;
         this.idBorrower = idBorrower;
         this.idLibary = idLibary;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
     }
+
 
     public int getId() {
         return id;
     }
 
-    public Date getTimeCreate() {
-        return timeCreate;
+    public void setTimeEnd(Date timeEnd) {
+        this.timeEnd = timeEnd;
     }
 
-    public Date getTimeLimit() {
-        return timeLimit;
+    public void setTimeStart(Date timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public java.sql.Date getTimeEnd() {
+        return (java.sql.Date) timeEnd;
+    }
+
+    public java.sql.Date getTimeStart() {
+        return (java.sql.Date) timeStart;
     }
 
     public int getIdBook() {
@@ -70,14 +81,6 @@ public class Bill {
 
     public void setNameBorrower(String nameBorrower) {
         this.nameBorrower = nameBorrower;
-    }
-
-    public void setTimeCreate(Date timeCreate) {
-        this.timeCreate = timeCreate;
-    }
-
-    public void setTimeLimit(Date timeLimit) {
-        this.timeLimit = timeLimit;
     }
 
     public void setIdLibary(int idLibary) {

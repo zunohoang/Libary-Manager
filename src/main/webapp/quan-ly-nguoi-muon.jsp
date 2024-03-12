@@ -371,11 +371,11 @@
 
                                 </script>
                                 <div class="flex">
-                                    <a type="submit" style="margin-left: 20px;"
-                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
-                                        Lưu</a>
+                                    <button type = "submit" style="margin-left: 20px;"
+                                            class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                        Lưu</button>
                                     <a onclick="addRow()"
-                                        class="btn waves-effect waves-light btn btn-info pull-right text-white">
+                                       class="btn waves-effect waves-light btn btn-info pull-right text-white">
                                         + Thêm hàng</a>
                                 </div>
                             </div>

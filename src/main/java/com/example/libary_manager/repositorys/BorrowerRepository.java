@@ -61,10 +61,10 @@ public class BorrowerRepository {
         connection.close();
     }
 
-    public void addBorrower(Borrower borrower) throws SQLException, ClassNotFoundException{
+    public boolean addBorrower(Borrower borrower) throws SQLException, ClassNotFoundException{
 
         Connection connection = mysqlConnect.getConnection();
-        String query = "insert into borrower(name, number_phone, discription, email, number_book, number_book_datra, born, id_libary) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "insert into borrower (name, number_phone, discription, email, number_book, number_book_datra, born, id_libary) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, borrower.getName());
@@ -76,7 +76,15 @@ public class BorrowerRepository {
         Date untilDate = borrower.getBorn();
         java.sql.Date sqlTime = new java.sql.Date(untilDate.getTime());
         preparedStatement.setDate(7, sqlTime);
+        preparedStatement.setInt(8, borrower.getIdLibary());
 
+        int rows = preparedStatement.executeUpdate();
+
+        preparedStatement.close();
+
+        connection.close();
+
+        return rows > 0;
 
     }
 }

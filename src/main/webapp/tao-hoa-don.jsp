@@ -1,3 +1,5 @@
+<%@ page import="com.example.libary_manager.models.Bill" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -191,7 +193,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Tạo hóa đơn</h4>
                                 <h6 class="card-subtitle">Cho mượn <code>.book</code></h6>
-                                <form class="form-horizontal form-material">
+                                <form action="tao-hoa-don" method="post"  class="form-horizontal form-material">
                                     <div class="form-group">
                                         <label class="col-md-12">Tên sách</label>
                                         <div class="col-md-12">
@@ -272,15 +274,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Nguyễn Văn Hoàng</td>
-                                                <td>Cậu là bạn nhỏ của tớ</td>
-                                                <td>Cho mượn</td>
-                                                <td>Hạn trả 01/01/2025</td>
-                                                <td>9:00PM 01/01/2024</td>
-                                                <td><a href="hoa-don.jsp?id=1">Chi tiết</a></td>
-                                            </tr>
+<%--                                            <tr>--%>
+<%--                                                <td>1</td>--%>
+<%--                                                <td>Nguyễn Văn Hoàng</td>--%>
+<%--                                                <td>Cậu là bạn nhỏ của tớ</td>--%>
+<%--                                                <td>Cho mượn</td>--%>
+<%--                                                <td>Hạn trả 01/01/2025</td>--%>
+<%--                                                <td>9:00PM 01/01/2024</td>--%>
+<%--                                                <td><a href="hoa-don.jsp?id=1">Chi tiết</a></td>--%>
+<%--                                            </tr>--%>
+                                            <% List<Bill> bills = (List<Bill>) request.getAttribute("bills");
+                                                if(!bills.isEmpty()){
+                                                    for (Bill bill : bills) { %>
+                                                        <tr>
+                                                            <td><%= bill.getId() %></td>
+                                                            <td><%= bill.getNameBorrower()%></td>
+                                                            <td><%= bill.getNameBook()%></td>
+                                                            <td>Cho mượn</td>
+                                                            <td>Hạn trả <%= bill.getTimeEnd()%></td>
+                                                            <td><%= bill.getTimeStart()%></td>
+                                                            <td><a href="hoa-don?id=<%= bill.getId()%>">Chi tiết</a></td>
+                                                        </tr>
+                                            <%      }
+                                                }
+                                            %>
                                         </tbody>
                                     </table>
                                     <script>
@@ -317,11 +334,28 @@
                                     <br>
                                     <div class="pagination">
                                         <a href="#">&laquo;</a>
-                                        <a href="#" class="active">1</a>
-                                        <a href="#">2</a>
-                                        <a href="#">3</a>
+                                        <a href="?tag=1" id="1">1</a>
+                                        <a href="?tag=2" id="2">2</a>
+                                        <a href="?tag=3" id="3">3</a>
                                         <a href="#">&raquo;</a>
                                     </div>
+                                    <script>
+                                        var currentUrl = window.location.href;
+                                        var urlParams = new URLSearchParams(new URL(currentUrl).search);
+                                        var tagValue = urlParams.get("tag");
+
+                                        var paginationLinks = document.querySelectorAll(".pagination a");
+
+                                        if (tagValue == null) {
+                                            tagValue = 1;
+                                        }
+
+                                        paginationLinks.forEach(function (link) {
+                                            if (link.id == tagValue) {
+                                                link.classList.add("active");
+                                            }
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>
