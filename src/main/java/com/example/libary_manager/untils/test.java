@@ -1,13 +1,17 @@
 package com.example.libary_manager.untils;
 
+import com.example.libary_manager.models.Borrower;
+import com.example.libary_manager.repositorys.BorrowerRepository;
+
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 public class test {
-    public static void main(String[] args) {
-        LocalDateTime y = LocalDateTime.now();
-        Date x = Date.from(y.atZone(java.time.ZoneId.systemDefault()).toInstant());
 
-        System.out.println(x);
+    private static final BorrowerRepository borrowerRepository = new BorrowerRepository();
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        Borrower borrower = borrowerRepository.findBorrowerById(2);
+        System.out.println(borrower);
     }
 }

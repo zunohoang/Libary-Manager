@@ -1,8 +1,10 @@
 package com.example.libary_manager.controllers;
 
 import com.example.libary_manager.models.Bill;
+import com.example.libary_manager.models.Borrower;
 import com.example.libary_manager.models.Libary;
 import com.example.libary_manager.repositorys.BillRepository;
+import com.example.libary_manager.repositorys.BorrowerRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,6 +23,7 @@ import java.util.List;
 public class BillController extends HttpServlet {
 
     private BillRepository billRepository = new BillRepository();
+    private BorrowerRepository borrowerRepository = new BorrowerRepository();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int tag = 1;
@@ -42,7 +45,7 @@ public class BillController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         String nameBook = req.getParameter("nameBook");
         String nameBorrower = req.getParameter("nameBorrower");
         int idBook = Integer.parseInt(req.getParameter("idBook"));
@@ -54,20 +57,40 @@ public class BillController extends HttpServlet {
         LocalDateTime timeS = LocalDateTime.now();
         LocalDateTime timeE = timeS.plusDays(30);
 
-        Date timeStart = java.sql.Date.valueOf(timeS.toLocalDate());
-        Date timeEnd = java.sql.Date.valueOf(timeE.toLocalDate());
+        Date timeStart = Date.valueOf(timeS.toLocalDate());
+        Date timeEnd = Date.valueOf(timeE.toLocalDate());
 
-        Bill bill = new Bill(0, nameBook, nameBorrower, idBook, idBorrower, idLibary, timeStart, timeEnd);
+        Borrower borrower = null;
 
         try {
-            if(billRepository.addBill(bill)){
-                resp.sendRedirect("tao-hoa-don");
+            borrower = borrowerRepository.findBorrowerById(idBorrower);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(borrower != null){
+                Bill bill = new Bill(0, nameBook, borrower.getName(), idBook, idBorrower, idLibary,timeStart, timeEnd, 0);
+                try {
+                    if(billRepository.addBill(bill)) {
+                        resp.sendRedirect("tao-hoa-don");
+                    } else {
+                        resp.sendRedirect("pages-error-404.html");
+                    }
+                } catch (SQLException | ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             } else {
-                req.getRequestDispatcher("tao-hoa-don").forward(req,resp);
+                resp.sendRedirect("pages-error-404.html");
             }
-        } catch (SQLException | ClassNotFoundException | IOException | ServletException e) {
+        }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        try {
+            billRepository.deleteBill(id);
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

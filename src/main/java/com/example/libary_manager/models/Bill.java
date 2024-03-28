@@ -13,9 +13,11 @@ public class Bill {
     private Date timeStart;
     private Date timeEnd;
 
+    private int status;
+
     public Bill(){}
     public Bill(int id, String nameBook, String nameBorrower, int idBook,
-                int idBorrower,int idLibary, Date timeStart, Date timeEnd){
+                int idBorrower,int idLibary, Date timeStart, Date timeEnd, int status){
         this.id = id;
         this.nameBook = nameBook;
         this.nameBorrower = nameBorrower;
@@ -24,8 +26,8 @@ public class Bill {
         this.idLibary = idLibary;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
+        this.status = status;
     }
-
 
     public int getId() {
         return id;
@@ -89,5 +91,12 @@ public class Bill {
 
     public int getIdLibary() {
         return idLibary;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

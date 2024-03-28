@@ -1,3 +1,4 @@
+<%@ page import="com.example.libary_manager.models.Bill" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -58,15 +59,19 @@
 </head>
 
 <body>
+    <%
+        Bill bill = (Bill) request.getAttribute("bill");
+    %>
     <header>
         <h1>HÓA ĐƠN MƯỢN SÁCH</h1>
-        <p>Ngày: <span id="invoice-date"></span></p>
+        <p>Ngày: <span id="invoice-date"><%=bill.getTimeStart()%></span></p>
     </header>
 
     <section>
-        <h2>Thông tin khách hàng</h2>
-        <p>Tên khách hàng: <span id="customer-name"></span></p>
-        <p>Địa chỉ: <span id="customer-address"></span></p>
+        <h2>Thông tin người mượn</h2>
+        <p>Tên người mượn: <span id="customer-name"><%=bill.getNameBorrower()%></span></p>
+        <p>ID người muượn: <span><%=bill.getIdBorrower()%></span></p>
+        <p>Địa chỉ: <span id="customer-address">Loading...</span></p>
         <!-- Add more customer information fields as needed -->
     </section>
 
@@ -76,21 +81,32 @@
             <thead>
                 <tr>
                     <th>Tên sách</th>
-                    <th>Tác giả</th>
+                    <th>ID sách</th>
                     <th>Ngày mượn</th>
                     <th>Ngày trả</th>
+                    <th>Trạng thái</th>
                     <!-- Add more book information columns as needed -->
                 </tr>
             </thead>
             <tbody>
-                <!-- Add book rows dynamically using JavaScript -->
+                <td><%=bill.getNameBook()%></td>
+                <td><%=bill.getIdBook()%></td>
+                <td><%=bill.getTimeStart()%></td>
+                <td><%=bill.getTimeEnd()%></td>
+                <%
+                    String status = "Đã trả";
+                    if (bill.getStatus() == 0) {
+                        status = "Chưa trả";
+                    }
+                %>
+                <td><%=status%></td>
             </tbody>
         </table>
     </section>
 
     <footer>
-        <p>Tổng số sách mượn: <span id="total-books"></span></p>
-        <p>Tổng số tiền phải trả: <span id="total-amount"></span></p>
+        <p>Tổng số sách mượn: <span id="total-books">1</span></p>
+        <p>Tổng số tiền phải trả: <span id="total-amount">0</span></p>
     </footer>
 
     <script>

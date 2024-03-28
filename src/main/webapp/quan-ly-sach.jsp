@@ -174,9 +174,12 @@
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href=""
+                        <a href="tao-hoa-don" style="margin-right: 10px"
                             class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
                             Tạo hóa đơn</a>
+                        <a href="tra-sach"
+                           class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
+                            Trả sách</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->

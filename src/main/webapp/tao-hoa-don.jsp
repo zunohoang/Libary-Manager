@@ -175,9 +175,12 @@
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href=""
-                            class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
+                        <a href="tao-hoa-don" style="margin-right: 10px"
+                           class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
                             Tạo hóa đơn</a>
+                        <a href="tra-sach"
+                           class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
+                            Trả sách</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -291,9 +294,15 @@
                                                             <td><%= bill.getNameBorrower()%></td>
                                                             <td><%= bill.getNameBook()%></td>
                                                             <td>Cho mượn</td>
-                                                            <td>Hạn trả <%= bill.getTimeEnd()%></td>
+                                                            <%
+                                                                String limit = "Hạn trả: " + (bill.getTimeEnd()).toString();
+                                                                if(bill.getStatus() == 1){
+                                                                    limit = "Đã trả: " + (bill.getTimeEnd()).toString();
+                                                                }
+                                                            %>>
+                                                            <td><%= limit%></td>
                                                             <td><%= bill.getTimeStart()%></td>
-                                                            <td><a href="hoa-don?id=<%= bill.getId()%>">Chi tiết</a></td>
+                                                            <td><a href="hoa-don?id=<%= bill.getId()%>">Chi tiết</a><a onclick="deleteBill(<%= bill.getId()%>)">">Xóa</a></td>
                                                         </tr>
                                             <%      }
                                                 }
@@ -301,6 +310,14 @@
                                         </tbody>
                                     </table>
                                     <script>
+                                        function deleteBill(idBill) {
+                                            fetch("tao-hoa-don?id=" + idBill, {
+                                                method: "DELETE"
+                                            }).then(function (data) {
+                                                console.log(data);
+                                                window.location.reload();
+                                            });
+                                        }
                                         function createBill(idBook) {
                                             window.location.href = "tao-hoa-don.jsp?id=" + idBook + "&name=" + "Bạn là cậu nhỏ của tớ";
                                         }

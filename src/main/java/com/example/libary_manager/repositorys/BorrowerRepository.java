@@ -87,4 +87,27 @@ public class BorrowerRepository {
         return rows > 0;
 
     }
+
+    public Borrower findBorrowerById(int id) throws SQLException, ClassNotFoundException{
+        Borrower borrower = null;
+
+        Connection connection = mysqlConnect.getConnection();
+        String query = "select * from borrower where id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, id);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            borrower = new Borrower();
+            borrower.setId(id);
+            borrower.setName(resultSet.getString("name"));
+        }
+
+        preparedStatement.close();
+
+        connection.close();
+
+        return borrower;
+    }
 }
